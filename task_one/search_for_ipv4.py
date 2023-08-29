@@ -1,22 +1,23 @@
-# a function that checks if a giving string is a valid IPv4 octet, 0-255 integer value
+# a function that checks if a giving string is a valid IPv4 octet which is 0-255 integer value
+# returns true if the conditions are met, otherwise false and it's not a valid ipv4 address
 def check_ip4_octet(octet):
     try:
         # check if the octet is an integer
         if octet.isdigit():
             octet = int(octet)
-            # check if it's a valid value in the right range [0-255]
+            # check if its a valid value in the right range [0-255]
             if 0 <= octet <= 255:
                 return True
         return False
     # catch the errors that might occur (before using isdigit func.)
-    except ValueError and TypeError as e:
+    except ValueError or TypeError as e:
         return False
 
 
-# function to check for v4 validity
-# takes the ip_address as a raw string
+# function to check ipv4 validation
+# takes the ip_address as a raw string and call check_ip4_octet to check each of the four octet validity separately
+# it returns true if all the octets are valid and the address is represented by x.x.x.x where x is 0-255
 def check_for_IPv4(ip_addr):
-    # ipv4 is represented by x.x.x.x where x is 0-255
     ip = ip_addr.split(".")
     #ipv4 must have 4 octets
     if len(ip) == 4:

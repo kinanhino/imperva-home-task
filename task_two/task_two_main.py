@@ -27,7 +27,5 @@ def add_days_to_date(date=None, number_of_days=None):
         else:
             return "Input Values Cannot be None"
 
-    except TypeError or AttributeError as err:
-        return err
-    except NameError as err:
+    except TypeError or AttributeError or NameError as err:
         return err

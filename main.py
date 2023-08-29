@@ -1,9 +1,3 @@
-
-
-
-
-
-import datetime
 from task_two.task_two_main import add_days_to_date
 from task_one.task_one_main import check_valid_ip
 
