@@ -5,7 +5,7 @@ from task_one.which_ipv6_ver import which_ipv6_version
 # main function that checks if its a valid ip at all and calling the right function to get the version type it uses
 # check_for_IPv4 to search for a valid ipv4 address and which_ipv6_version to check for a valid ipv6 or dual address
 # the function returns the version of the ip if it's a valid ip, otherwise return invalid ip
-def check_valid_ip(ip_addr):
+def check_valid_ip(ip_addr=None):
     try:
         if ip_addr is None:
             return "input address cannot be None"
@@ -21,6 +21,6 @@ def check_valid_ip(ip_addr):
         else:
             # then it might be an ipv6 or a dual ip
             return which_ipv6_version(ipv6)
-    except TypeError as e:
-        return e
+    except AttributeError or TypeError as e:
+        return "ip must be provided as a string"
 
